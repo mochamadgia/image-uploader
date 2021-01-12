@@ -69,6 +69,9 @@ app.get('/:file', (req, res) => {
         file: `${req.params.file}`
     });
 })
+app.get('/views/:html', (req, res) => {
+    res.sendFile('footer.html', { root: 'D:\\PLAYGROUND\\DevChallenges\\Repository\\image-uploader\\views' });
+})
 //POST
 app.post('/upload', (req, res) => {
     upload(req, res, (err) => {
