@@ -11,10 +11,11 @@ const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 //static files
 app.use(express.static('public'));
-app.use('/css', express.static(__dirname + 'public/lib'));
+app.use('/lib', express.static(__dirname + 'public/lib'));
 app.use('/css', express.static(__dirname + 'public/css'));
 app.use('/img', express.static(__dirname + 'public/img'));
 app.use('/js', express.static(__dirname + 'public/js'));
+app.use('/html', express.static(__dirname + 'public/html'));
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }))
@@ -72,7 +73,7 @@ app.get('/:file', (req, res) => {
     });
 })
 app.get('/views/:html', (req, res) => {
-    res.sendFile('footer.html', { root: __dirname + '\\views' });
+    res.sendFile('footer.html', { root: __dirname + '\\public\\html' });
 })
 //POST
 app.post('/upload', (req, res) => {
