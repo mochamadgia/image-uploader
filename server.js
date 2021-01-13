@@ -5,7 +5,8 @@ const fs = require('fs');
 const { extname } = require('path');
 const { Socket } = require('dgram');
 const app = express();
-const port = 3000;
+
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 //static files
