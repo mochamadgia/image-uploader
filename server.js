@@ -73,7 +73,7 @@ app.get('/:file', (req, res) => {
     });
 })
 app.get('/views/:html', (req, res) => {
-    res.sendFile('footer.html', { root: __dirname + '\\public\\html' });
+    res.sendFile('footer.html', { root: __dirname + '/public/html' });
 })
 //POST
 app.post('/upload', (req, res) => {
