@@ -37,6 +37,7 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 })
+
 //init upload
 const upload = multer({
     storage: storage,
@@ -71,7 +72,7 @@ app.get('/:file', (req, res) => {
     });
 })
 app.get('/views/:html', (req, res) => {
-    res.sendFile('footer.html', { root: 'D:\\PLAYGROUND\\DevChallenges\\Repository\\image-uploader\\views' });
+    res.sendFile('footer.html', { root: __dirname + '\\views' });
 })
 //POST
 app.post('/upload', (req, res) => {
