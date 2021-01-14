@@ -82,7 +82,7 @@ app.post('/upload', (req, res) => {
             res.render('response', {
                 msg: err,
                 status: 'error',
-                file: 'img/image-broken.svg'
+                file: 'img/image-broken.jpg'
             });
             return err;
         } else {
