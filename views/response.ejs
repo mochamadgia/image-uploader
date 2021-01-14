@@ -19,16 +19,19 @@
         <div class="img_uploader_1">
             <div class= "box-container">
                 <div class="box-response">
-                    <i class="fa fa-check-circle check-icon"  aria-hidden="true"></i>
-                    <div class="box-response-text">Uploaded successfully</div>
+                    <i class="<%= status == 'success' ? 'fa fa-check-circle success' 
+                    : 'fa fa-times-circle error'%>"  aria-hidden="true"></i>
+                    
+                    <div class="box-response-text"><%= typeof msg != 'undefined' ? msg : '' %></div>
                     <img src="<%= typeof file != 'undefined' ? file : '' %>" class="box-response-image"></div>
                     <input id='inputFile' type="hidden" value="<%= typeof file != 'undefined' ? file : '' %>"/>
-                    <div class="box-response-link">
+                    <div class="box-response-link" <%= status == 'success' ? '':'style=display:none'%>>
                         <div class="box-response-text-link"><%= typeof path != 'undefined' ? path : '' %>
                             <input id="inputLink" type="text" class="hide" value="<%= typeof path != 'undefined' ? path : '' %>"/>
                         </div>
                         <button id="btn-copy" class="box-response-btn waves-effect waves-light btn-float  btn-text" >Copy Link</button>
                     </div>
+                    <a href="/" class="waves-effect waves-light btn btn-reupload" <%= status == 'error' ? '':'style=display:none'%>>Reupload</a>
                 </div>
             </div>
             

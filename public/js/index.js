@@ -4,9 +4,8 @@ const file = document.getElementById('uploadfile');
 file.onchange = (e) => {
     $('#box-upload').hide();
     $('#loader').show();
-    setTimeout(() => {
-        document.getElementById('formUpload').submit();
-    }, 2000);
+    document.getElementById('formUpload').submit();
+
 
 }
 const dropZone = document.getElementById('drop_zone');

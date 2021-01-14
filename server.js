@@ -42,7 +42,7 @@ const storage = multer.diskStorage({
 //init upload
 const upload = multer({
     storage: storage,
-    limits: { fileSize: 1000000 },
+    limits: { fileSize: 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         checkFileType(file, cb);
     }
@@ -79,15 +79,19 @@ app.get('/views/:html', (req, res) => {
 app.post('/upload', (req, res) => {
     upload(req, res, (err) => {
         if (err) {
-            res.render('index', {
-                msg: err
+            res.render('response', {
+                msg: err,
+                status: 'error',
+                file: 'img/image-broken.svg'
             });
             return err;
         } else {
 
             res.render('response', {
                 file: `uploads/${req.file.filename}`,
-                path: req.headers.origin + '/' + req.file.filename
+                path: req.headers.origin + '/' + req.file.filename,
+                status: 'success',
+                msg: 'Updated successfully'
             });
 
 
